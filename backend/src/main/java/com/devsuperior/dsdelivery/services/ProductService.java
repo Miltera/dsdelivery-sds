@@ -1,6 +1,5 @@
 package com.devsuperior.dsdelivery.services;
 
-import java.io.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,8 +17,7 @@ public class ProductService {
 	private ProductRepository repository;
 	
 	public List<ProductDTO> findAll() {
-		List<Product> list; 
-		list = repository.findAllByOrderByNameAsc();
+		List<Product> list = repository.findAllByOrderByNameAsc();
 		return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 	 
