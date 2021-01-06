@@ -5,6 +5,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import com.devsuperior.dsdelivery.entities.Order;
 import com.devsuperior.dsdelivery.entities.OrderStatus;
 
@@ -13,8 +16,11 @@ public class OrderDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String address;
+	@NotBlank(message = "{address.not.blank}")
+	private String address;		
+	@NotNull(message = "{latitude.not.blank}")
 	private Double latitude;
+	@NotNull(message = "{longitude.not.blank}")
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;
